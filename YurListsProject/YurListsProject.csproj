@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9643841F-9E97-4941-949C-C02B5908D209}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YurListsProject</RootNamespace>
+    <AssemblyName>YurListsProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ADUtility.cs" />
+    <Compile Include="Common\BusinessLogic.cs" />
+    <Compile Include="Common\Classes.cs" />
+    <Compile Include="Common\InfoBase1CServiceProxy.cs" />
+    <Compile Include="Common\UpdateYurPostsFrom1C.cs" />
+    <Compile Include="Common\UpdateYurDepartmentsFrom1C.cs" />
+    <Compile Include="Features\FeatureFillYurDepatmentList\FeatureFillYurDepatmentList.EventReceiver.cs">
+      <DependentUpon>FeatureFillYurDepatmentList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FeatureFillYurPostsList\FeatureFillYurPostsList.EventReceiver.cs">
+      <DependentUpon>FeatureFillYurPostsList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Service1C\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Features\FeatureFillYurPostsList\FeatureFillYurPostsList.feature">
+      <FeatureId>{c0bfc75c-5ca1-49b6-ac3c-ddd1cda697b2}</FeatureId>
+    </None>
+    <None Include="Features\FeatureFillYurDepatmentList\FeatureFillYurDepatmentList.feature">
+      <FeatureId>{3f4d2c8a-b771-4415-bff8-4bd775441f48}</FeatureId>
+    </None>
+    <None Include="Features\FeatureAddYurPostsList\FeatureAddYurPostsList.feature">
+      <FeatureId>{0a2d6fdf-9f53-40f7-99c2-a2d89eacab1f}</FeatureId>
+    </None>
+    <None Include="Features\FeatureAddYurDepartmentList\FeatureAddYurDepartmentList.feature">
+      <FeatureId>{d9e31a69-824e-4b7d-a65b-0316e6398650}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Package\Package.package">
+      <PackageId>{79e1427f-4e6c-4e89-a051-898bb19ef227}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\WebSharepoint.wsdl" />
+    <None Include="Service References\Service1C\YurListsProject.Service1C.CreateCalculationPlanResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.CreateEmployeeRecruitmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.CreateEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.CreateEmployeeМovementResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.DeptTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.DownloadCashFlowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.GetBonusOverlimitedEmployeesTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.GetDeptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.GetUserInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.ImportZPTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.OrgUserTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.PartnerTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.SelectOrgUsersByDepartmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.SelectOrgUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service1C\YurListsProject.Service1C.SelectSubdivisionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="YurDepatmentList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9b59aefc-c599-4bca-87c9-850b601e3109}</SharePointProjectItemId>
+    </None>
+    <None Include="YurDepatmentList\YurDepatmentListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{56ba8c46-47df-4a3a-bea1-5aed97b74dcf}</SharePointProjectItemId>
+    </None>
+    <None Include="YurPostsList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fd2556e2-acd4-4e68-aa8a-19eae7a04e86}</SharePointProjectItemId>
+    </None>
+    <None Include="YurPostsList\YurPostsListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f1958284-7d2b-4692-9031-5ae2fd94c1db}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\FeatureFillYurPostsList\FeatureFillYurPostsList.Template.xml">
+      <DependentUpon>FeatureFillYurPostsList.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\FeatureFillYurDepatmentList\FeatureFillYurDepatmentList.Template.xml">
+      <DependentUpon>FeatureFillYurDepatmentList.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\FeatureAddYurPostsList\FeatureAddYurPostsList.Template.xml">
+      <DependentUpon>FeatureAddYurPostsList.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\FeatureAddYurDepartmentList\FeatureAddYurDepartmentList.Template.xml">
+      <DependentUpon>FeatureAddYurDepartmentList.feature</DependentUpon>
+    </Content>
+    <None Include="Service References\Service1C\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Service1C\configuration.svcinfo" />
+    <None Include="Service References\Service1C\configuration91.svcinfo" />
+    <Content Include="YurDepatmentList\Elements.xml" />
+    <Content Include="YurDepatmentList\Schema.xml" />
+    <Content Include="YurDepatmentList\YurDepatmentListInstance\Elements.xml" />
+    <Content Include="YurPostsList\Elements.xml" />
+    <Content Include="YurPostsList\Schema.xml" />
+    <Content Include="YurPostsList\YurPostsListInstance\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Service1C\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

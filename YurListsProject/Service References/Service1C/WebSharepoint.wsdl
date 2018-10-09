@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd1="http://sharepoint.biosfera.net" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="http://sharepoint.biosfera.net" name="WebSharepoint" targetNamespace="http://sharepoint.biosfera.net" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:xs1="http://sharepoint.biosfera.net" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sharepoint.biosfera.net" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CalculationPlanRow">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FizObjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CalculationTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FinanceUnitID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KindOfMovement" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Probation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CalculationPlanTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CalculationPlanRow" nillable="true" type="xs1:CalculationPlanRow" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CashFlowString">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FinanceUnit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BudgetID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateOfCreation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InitiatorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Month" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NG_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rationale" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Article" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Scenario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CashFlowTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CashFlowString" type="xs1:CashFlowString" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeptString">
+        <xs:sequence>
+          <xs:element name="Code" nillable="true" type="xs:string" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+          <xs:element name="SprName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeptTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeptStr" type="xs1:DeptString" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmployeeRecruitmentTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RecruitmentRow" nillable="true" type="xs1:EmployeeRecruitmentType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmployeeRecruitmentType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FizObjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GradeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartWorkDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndTestTerminDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdminHead" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionalHead" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EmployeeType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TIN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthDay" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportSeries" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportData" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportVidan" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrgUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthDay" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Responsible" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Function" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TableNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionIDLegal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionLegal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdminHead" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FunctionalHead" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrgUserTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OrgUsr" type="xs1:OrgUser" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PartnerString">
+        <xs:sequence>
+          <xs:element name="Code" nillable="true" type="xs:string" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+          <xs:element name="INN" nillable="true" type="xs:string" />
+          <xs:element name="CodeRegistration" nillable="true" type="xs:string" />
+          <xs:element name="Buyer" nillable="true" type="xs:boolean" />
+          <xs:element name="Provider" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PartnerTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PartnerString" type="xs1:PartnerString" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UsrString">
+        <xs:sequence>
+          <xs:element name="IDBase1C" type="xs:string" />
+          <xs:element name="FIO" type="xs:string" />
+          <xs:element name="FIOID" type="xs:string" />
+          <xs:element name="Email" nillable="true" type="xs:string" />
+          <xs:element name="UserOS" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UsrTable">
+        <xs:sequence>
+          <xs:element name="UsrString" type="xs1:UsrString" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZPTableString">
+        <xs:sequence>
+          <xs:element name="FizObjectID" nillable="true" type="xs:string" />
+          <xs:element name="TypeZPID" nillable="true" type="xs:string" />
+          <xs:element name="Total" nillable="true" type="xs:string" />
+          <xs:element name="NeedHours" nillable="true" type="xs:string" />
+          <xs:element name="NeedDays" nillable="true" type="xs:string" />
+          <xs:element name="Hours" nillable="true" type="xs:string" />
+          <xs:element name="Days" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZPTableTable">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZPTableStr" type="xs1:ZPTableString" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZPTitleParam">
+        <xs:sequence>
+          <xs:element name="DepartmentID" nillable="true" type="xs:string" />
+          <xs:element name="ResponsibleID" nillable="true" type="xs:string" />
+          <xs:element name="Comment" nillable="true" type="xs:string" />
+          <xs:element name="Month" nillable="true" type="xs:string" />
+          <xs:element name="UnitID" nillable="true" type="xs:string" />
+          <xs:element name="TypeZPID" nillable="true" type="xs:int" />
+          <xs:element name="NormGroupID" nillable="true" type="xs:string" />
+          <xs:element name="MoneyItemID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SelectSubdivisions">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectSubdivisionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDept">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DeptStr" type="xs1:DeptString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDeptResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs1:DeptTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UsrString" type="xs1:UsrString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectOrgUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DateCurrent" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectOrgUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:OrgUserTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectOrgUsersByDepartment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DepartmentID" type="xs:string" />
+            <xs:element name="DateCurrent" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectOrgUsersByDepartmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs1:OrgUserTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportZPTable">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TitleParam" type="xs1:ZPTitleParam" />
+            <xs:element name="TableParam" type="xs1:ZPTableTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportZPTableResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectTypeCalculationKinds">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectTypeCalculationKindsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:DeptTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectTypeRetentionKinds">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SelectTypeRetentionKindsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:DeptTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBonusOverlimitedEmployeesTable">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TitleParam" type="xs1:ZPTitleParam" />
+            <xs:element name="TableParam" type="xs1:ZPTableTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBonusOverlimitedEmployeesTableResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:DeptTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployee">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TitleParam" type="xs1:EmployeeType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployeeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployeeRecruitment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TableParam" type="xs1:EmployeeRecruitmentTable" />
+            <xs:element name="TableParamCalc" type="xs1:CalculationPlanTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployeeRecruitmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployeeМovement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TableParam" type="xs1:EmployeeRecruitmentTable" />
+            <xs:element name="TableParamCalc" type="xs1:CalculationPlanTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateEmployeeМovementResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateCalculationPlan">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TableParam" type="xs1:CalculationPlanTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateCalculationPlanResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllWorkScheldules">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllWorkScheldulesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:DeptTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPartners">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPartnersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs1:PartnerTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadCashFlow">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="TableParam" type="xs1:CashFlowTable" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadCashFlowResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="SelectSubdivisionsRequestMessage">
+    <part name="parameters" element="tns:SelectSubdivisions" />
+  </message>
+  <message name="SelectSubdivisionsResponseMessage">
+    <part name="parameters" element="tns:SelectSubdivisionsResponse" />
+  </message>
+  <message name="GetDeptRequestMessage">
+    <part name="parameters" element="tns:GetDept" />
+  </message>
+  <message name="GetDeptResponseMessage">
+    <part name="parameters" element="tns:GetDeptResponse" />
+  </message>
+  <message name="GetUserInfoRequestMessage">
+    <part name="parameters" element="tns:GetUserInfo" />
+  </message>
+  <message name="GetUserInfoResponseMessage">
+    <part name="parameters" element="tns:GetUserInfoResponse" />
+  </message>
+  <message name="SelectOrgUsersRequestMessage">
+    <part name="parameters" element="tns:SelectOrgUsers" />
+  </message>
+  <message name="SelectOrgUsersResponseMessage">
+    <part name="parameters" element="tns:SelectOrgUsersResponse" />
+  </message>
+  <message name="SelectOrgUsersByDepartmentRequestMessage">
+    <part name="parameters" element="tns:SelectOrgUsersByDepartment" />
+  </message>
+  <message name="SelectOrgUsersByDepartmentResponseMessage">
+    <part name="parameters" element="tns:SelectOrgUsersByDepartmentResponse" />
+  </message>
+  <message name="ImportZPTableRequestMessage">
+    <part name="parameters" element="tns:ImportZPTable" />
+  </message>
+  <message name="ImportZPTableResponseMessage">
+    <part name="parameters" element="tns:ImportZPTableResponse" />
+  </message>
+  <message name="SelectTypeCalculationKindsRequestMessage">
+    <part name="parameters" element="tns:SelectTypeCalculationKinds" />
+  </message>
+  <message name="SelectTypeCalculationKindsResponseMessage">
+    <part name="parameters" element="tns:SelectTypeCalculationKindsResponse" />
+  </message>
+  <message name="SelectTypeRetentionKindsRequestMessage">
+    <part name="parameters" element="tns:SelectTypeRetentionKinds" />
+  </message>
+  <message name="SelectTypeRetentionKindsResponseMessage">
+    <part name="parameters" element="tns:SelectTypeRetentionKindsResponse" />
+  </message>
+  <message name="GetBonusOverlimitedEmployeesTableRequestMessage">
+    <part name="parameters" element="tns:GetBonusOverlimitedEmployeesTable" />
+  </message>
+  <message name="GetBonusOverlimitedEmployeesTableResponseMessage">
+    <part name="parameters" element="tns:GetBonusOverlimitedEmployeesTableResponse" />
+  </message>
+  <message name="CreateEmployeeRequestMessage">
+    <part name="parameters" element="tns:CreateEmployee" />
+  </message>
+  <message name="CreateEmployeeResponseMessage">
+    <part name="parameters" element="tns:CreateEmployeeResponse" />
+  </message>
+  <message name="CreateEmployeeRecruitmentRequestMessage">
+    <part name="parameters" element="tns:CreateEmployeeRecruitment" />
+  </message>
+  <message name="CreateEmployeeRecruitmentResponseMessage">
+    <part name="parameters" element="tns:CreateEmployeeRecruitmentResponse" />
+  </message>
+  <message name="CreateEmployeeМovementRequestMessage">
+    <part name="parameters" element="tns:CreateEmployeeМovement" />
+  </message>
+  <message name="CreateEmployeeМovementResponseMessage">
+    <part name="parameters" element="tns:CreateEmployeeМovementResponse" />
+  </message>
+  <message name="CreateCalculationPlanRequestMessage">
+    <part name="parameters" element="tns:CreateCalculationPlan" />
+  </message>
+  <message name="CreateCalculationPlanResponseMessage">
+    <part name="parameters" element="tns:CreateCalculationPlanResponse" />
+  </message>
+  <message name="GetAllWorkScheldulesRequestMessage">
+    <part name="parameters" element="tns:GetAllWorkScheldules" />
+  </message>
+  <message name="GetAllWorkScheldulesResponseMessage">
+    <part name="parameters" element="tns:GetAllWorkScheldulesResponse" />
+  </message>
+  <message name="GetPartnersRequestMessage">
+    <part name="parameters" element="tns:GetPartners" />
+  </message>
+  <message name="GetPartnersResponseMessage">
+    <part name="parameters" element="tns:GetPartnersResponse" />
+  </message>
+  <message name="DownloadCashFlowRequestMessage">
+    <part name="parameters" element="tns:DownloadCashFlow" />
+  </message>
+  <message name="DownloadCashFlowResponseMessage">
+    <part name="parameters" element="tns:DownloadCashFlowResponse" />
+  </message>
+  <portType name="WebSharepointPortType">
+    <operation name="SelectSubdivisions">
+      <input message="tns:SelectSubdivisionsRequestMessage" />
+      <output message="tns:SelectSubdivisionsResponseMessage" />
+    </operation>
+    <operation name="GetDept">
+      <input message="tns:GetDeptRequestMessage" />
+      <output message="tns:GetDeptResponseMessage" />
+    </operation>
+    <operation name="GetUserInfo">
+      <input message="tns:GetUserInfoRequestMessage" />
+      <output message="tns:GetUserInfoResponseMessage" />
+    </operation>
+    <operation name="SelectOrgUsers">
+      <input message="tns:SelectOrgUsersRequestMessage" />
+      <output message="tns:SelectOrgUsersResponseMessage" />
+    </operation>
+    <operation name="SelectOrgUsersByDepartment">
+      <input message="tns:SelectOrgUsersByDepartmentRequestMessage" />
+      <output message="tns:SelectOrgUsersByDepartmentResponseMessage" />
+    </operation>
+    <operation name="ImportZPTable">
+      <input message="tns:ImportZPTableRequestMessage" />
+      <output message="tns:ImportZPTableResponseMessage" />
+    </operation>
+    <operation name="SelectTypeCalculationKinds">
+      <input message="tns:SelectTypeCalculationKindsRequestMessage" />
+      <output message="tns:SelectTypeCalculationKindsResponseMessage" />
+    </operation>
+    <operation name="SelectTypeRetentionKinds">
+      <input message="tns:SelectTypeRetentionKindsRequestMessage" />
+      <output message="tns:SelectTypeRetentionKindsResponseMessage" />
+    </operation>
+    <operation name="GetBonusOverlimitedEmployeesTable">
+      <input message="tns:GetBonusOverlimitedEmployeesTableRequestMessage" />
+      <output message="tns:GetBonusOverlimitedEmployeesTableResponseMessage" />
+    </operation>
+    <operation name="CreateEmployee">
+      <input message="tns:CreateEmployeeRequestMessage" />
+      <output message="tns:CreateEmployeeResponseMessage" />
+    </operation>
+    <operation name="CreateEmployeeRecruitment">
+      <input message="tns:CreateEmployeeRecruitmentRequestMessage" />
+      <output message="tns:CreateEmployeeRecruitmentResponseMessage" />
+    </operation>
+    <operation name="CreateEmployeeМovement">
+      <input message="tns:CreateEmployeeМovementRequestMessage" />
+      <output message="tns:CreateEmployeeМovementResponseMessage" />
+    </operation>
+    <operation name="CreateCalculationPlan">
+      <input message="tns:CreateCalculationPlanRequestMessage" />
+      <output message="tns:CreateCalculationPlanResponseMessage" />
+    </operation>
+    <operation name="GetAllWorkScheldules">
+      <input message="tns:GetAllWorkScheldulesRequestMessage" />
+      <output message="tns:GetAllWorkScheldulesResponseMessage" />
+    </operation>
+    <operation name="GetPartners">
+      <input message="tns:GetPartnersRequestMessage" />
+      <output message="tns:GetPartnersResponseMessage" />
+    </operation>
+    <operation name="DownloadCashFlow">
+      <input message="tns:DownloadCashFlowRequestMessage" />
+      <output message="tns:DownloadCashFlowResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="WebSharepointSoapBinding" type="tns:WebSharepointPortType">
+    <soapbind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="SelectSubdivisions">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectSubdivisions" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetDept">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetDept" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetUserInfo">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetUserInfo" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectOrgUsers">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectOrgUsers" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectOrgUsersByDepartment">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectOrgUsersByDepartment" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ImportZPTable">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:ImportZPTable" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectTypeCalculationKinds">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectTypeCalculationKinds" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectTypeRetentionKinds">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectTypeRetentionKinds" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBonusOverlimitedEmployeesTable">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetBonusOverlimitedEmployeesTable" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployee">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployee" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployeeRecruitment">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployeeRecruitment" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployeeМovement">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployeeМovement" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateCalculationPlan">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateCalculationPlan" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetAllWorkScheldules">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetAllWorkScheldules" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetPartners">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetPartners" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="DownloadCashFlow">
+      <soapbind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:DownloadCashFlow" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="WebSharepointSoap12Binding" type="tns:WebSharepointPortType">
+    <soap12bind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="SelectSubdivisions">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectSubdivisions" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetDept">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetDept" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetUserInfo">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetUserInfo" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectOrgUsers">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectOrgUsers" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectOrgUsersByDepartment">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectOrgUsersByDepartment" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ImportZPTable">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:ImportZPTable" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectTypeCalculationKinds">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectTypeCalculationKinds" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SelectTypeRetentionKinds">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:SelectTypeRetentionKinds" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetBonusOverlimitedEmployeesTable">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetBonusOverlimitedEmployeesTable" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployee">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployee" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployeeRecruitment">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployeeRecruitment" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateEmployeeМovement">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateEmployeeМovement" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="CreateCalculationPlan">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:CreateCalculationPlan" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetAllWorkScheldules">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetAllWorkScheldules" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetPartners">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:GetPartners" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="DownloadCashFlow">
+      <soap12bind:operation soapAction="http://sharepoint.biosfera.net#WebSharepoint:DownloadCashFlow" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WebSharepoint">
+    <port name="WebSharepointSoap" binding="tns:WebSharepointSoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
+      </documentation>
+      <soapbind:address location="http://dt1-v-1capp09.biosfera.net/nazarevich_biosfera_upp_main/ws/websharepoint" />
+    </port>
+    <port name="WebSharepointSoap12" binding="tns:WebSharepointSoap12Binding">
+      <soap12bind:address location="http://dt1-v-1capp09.biosfera.net/nazarevich_biosfera_upp_main/ws/websharepoint" />
+    </port>
+  </service>
+</definitions>
